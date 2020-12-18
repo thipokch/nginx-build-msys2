@@ -86,6 +86,9 @@ cp -pf "${PCRE}/LICENCE" '../docs/PCRE.LICENCE'
 sed -ne '/^ (C) 1995-20/,/^  jloup@gzip\.org/p' "${ZLIB}/README" > '../docs/zlib.LICENSE'
 touch -r "${ZLIB}/README" '../docs/zlib.LICENSE'
 
+# clone ngx_http_substitutions_filter_module
+git clone git://github.com/yaoweibin/ngx_http_substitutions_filter_module.git
+
 # configure
 configure_args=(
     --sbin-path=nginx.exe \
@@ -118,6 +121,7 @@ configure_args=(
     --with-mail_ssl_module \
     --with-stream_ssl_module \
     --with-ld-opt="-Wl,--gc-sections,--build-id=none" \
+    --add-module=/ngx_http_substitutions_filter_module \
     --prefix=
 )
 echo ${configure_args[@]}
