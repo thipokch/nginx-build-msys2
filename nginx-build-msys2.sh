@@ -121,7 +121,7 @@ configure_args=(
     --with-mail_ssl_module \
     --with-stream_ssl_module \
     --with-ld-opt="-Wl,--gc-sections,--build-id=none" \
-    --add-module=/ngx_http_substitutions_filter_module \
+    --add-module=ngx_http_substitutions_filter_module \
     --prefix=
 )
 echo ${configure_args[@]}
